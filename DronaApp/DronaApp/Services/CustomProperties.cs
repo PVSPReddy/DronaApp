@@ -6,14 +6,27 @@ namespace DronaApp
 {
 	public class CustomProperties : ContentPage
 	{
+		private double _appScreenHeight;
+		private double _appScreenWidth;
+
+
+		public double AppScreenHeight
+		{
+			get { return _appScreenHeight; }
+			set { _appScreenHeight = value; }
+		}
+
+		public dynamic AppScreenWidth
+		{
+			get { return _appScreenWidth; }
+			set { _appScreenWidth = value; }
+		}
+
+
 		public CustomProperties()
 		{
-			Content = new StackLayout
-			{
-				Children = {
-					new Label { Text = "Hello ContentPage" }
-				}
-			};
+			_appScreenHeight = App.ScreenHeight;
+			_appScreenWidth = App.ScreenWidth;
 		}
 	}
 }
