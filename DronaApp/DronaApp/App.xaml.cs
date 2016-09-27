@@ -4,6 +4,8 @@ namespace DronaApp
 {
 	public partial class App : Application
 	{
+		public static int ScreenWidth;
+		public static int ScreenHeight;
 		public App()
 		{
 			InitializeComponent();
