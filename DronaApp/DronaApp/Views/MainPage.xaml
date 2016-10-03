@@ -1,5 +1,47 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DronaApp.MainPage">
 	<ContentPage.Content>
+		<StackLayout x:Name="container">
+			<StackLayout x:Name="holder" Padding="20,20,10,10" BackgroundColor="Teal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="1*"/>
+					</Grid.ColumnDefinitions>
+					<Label x:Name="elmdpUline" Text="___________________________________" TextColor="White" Grid.Row="0" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" >
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer NumberOfTapsRequired="1" Tapped="elmdp_Clicked"/>
+						</Label.GestureRecognizers>
+					</Label>
+					<Label x:Name="elmdp" Text="Enter Listviewed Master Detail Page" TextColor="White" Grid.Row="0" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" >
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer NumberOfTapsRequired="1" Tapped="elmdp_Clicked"/>
+						</Label.GestureRecognizers>
+					</Label>
+				</Grid>
+				<Grid>
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto"/>
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="1*"/>
+					</Grid.ColumnDefinitions>
+					<Label x:Name="esmdpUline" Text="______________________________" TextColor="White" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand" >
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer NumberOfTapsRequired="1" Tapped="esmdp_Clicked"/>
+						</Label.GestureRecognizers>
+					</Label>
+					<Label x:Name="esmdp" Text="Enter Static Master Detail Page" TextColor="White" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" >
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer NumberOfTapsRequired="1" Tapped="esmdp_Clicked"/>
+						</Label.GestureRecognizers>
+					</Label>
+				</Grid>
+			
+			</StackLayout>
+		</StackLayout>
 	</ContentPage.Content>
 </ContentPage>
