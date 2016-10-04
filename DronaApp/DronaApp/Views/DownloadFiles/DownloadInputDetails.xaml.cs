@@ -139,11 +139,15 @@ namespace DronaApp
 		{
 			try
 			{
+				#region
+				/*if this printer code or webview is not working well or if it gives any exception or null then
+				then change page navigation type to pushasync from push modalasync and viceversa */
+				#endregion
 				if (filePath1 != null)
 				{
 					if (Device.OS == TargetPlatform.iOS)
 					{
-						await Navigation.PushAsync(new DisplayDownloadedFile(filePath1));
+						await Navigation.PushModalAsync(new DisplayDownloadedFile(filePath1));
 					}
 					else if (Device.OS == TargetPlatform.Android)
 					{

@@ -1,12 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace DronaApp
 {
 	public partial class DisplayDownloadedFile : ContentPage
 	{
+		#region
+		/*if this printer code or webview is not working well or if it gives any exception or null then
+		then change page navigation type to pushasync from push modalasync and viceversa */
+		#endregion
 		CustomProperties cp = new CustomProperties();
 		StackLayout stackL, holder1, holding;
 		string fullPath;
@@ -87,20 +91,20 @@ namespace DronaApp
 			Content = holding;
 		}
 
-		/*#region presently no use of this as the above code works well
-		public DisplayDownloadedFile(Task<string> viewData)
-		{
-			CustomProperties cp = new CustomProperties();
-			var screenHeight = cp.AppScreenHeight;
-			var screenWidth = cp.AppScreenWidth;
-			WebView browser;
-			InitializeComponent();
-			var uri = new Uri(String.Format("file://{0}", viewData));
-			var fullPath = uri.ToString();
-			browser = new WebView();
-			browser.Source = fullPath;
-		}
-		#endregion*/
+		//#region presently no use of this as the above code works well
+		//public DisplayDownloadedFile(Task<string> viewData)
+		//{
+		//	CustomProperties cp = new CustomProperties();
+		//	var screenHeight = cp.AppScreenHeight;
+		//	var screenWidth = cp.AppScreenWidth;
+		//	WebView browser;
+		//	InitializeComponent();
+		//	var uri = new Uri(String.Format("file://{0}", viewData));
+		//	var fullPath = uri.ToString();
+		//	browser = new WebView();
+		//	browser.Source = fullPath;
+		//}
+		//#endregion
 	}
 }
 
