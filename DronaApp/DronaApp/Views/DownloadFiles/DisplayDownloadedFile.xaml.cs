@@ -33,9 +33,12 @@ namespace DronaApp
 				VerticalOptions = LayoutOptions.Fill
 			};
 
-			Image Download = new Image()
+			Label Download = new Label()
+			//Image Download = new Image()
 			{
-				Source = "Download.png",
+				Text = "Download",
+				TextColor = Color.Maroon,
+				//Source = "Download.png",
 				VerticalOptions = LayoutOptions.CenterAndExpand,
 				HorizontalOptions = LayoutOptions.EndAndExpand
 			};
@@ -47,9 +50,12 @@ namespace DronaApp
 			};
 			Download.GestureRecognizers.Add(download_Data);
 
-			Image Print = new Image()
+			Label Print = new Label()
+			//Image Print = new Image()
 			{
-				Source = "Print.png",
+				Text = "Print",
+				TextColor = Color.Maroon,
+				//Source = "Print.png",
 				VerticalOptions = LayoutOptions.CenterAndExpand,
 				HorizontalOptions = LayoutOptions.EndAndExpand
 			};
