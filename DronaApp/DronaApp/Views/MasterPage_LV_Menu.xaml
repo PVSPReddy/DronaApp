@@ -1,13 +1,14 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DronaApp.MasterPage_LV_Menu">
 	<ContentPage.Content>
+		
 		<StackLayout x:Name="container">
-			<StackLayout x:Name="holder" Padding="20,20,10,10" BackgroundColor="Teal" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-				<ListView x:Name="pageMenus">
-					<ListView.ItemTemplate>
+			<StackLayout x:Name="holder" Padding="0, 20, 0, 5" BackgroundColor="Maroon" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+				<ListView x:Name="pageMenus" BackgroundColor="Maroon" >
+					<ListView.ItemTemplate >
 						<DataTemplate>
 							<ViewCell>
-								<StackLayout>
+								<StackLayout BackgroundColor="Teal">
 									<Label Text="{Binding pageName}">
 									</Label>
 								</StackLayout>
@@ -17,5 +18,6 @@
 				</ListView>
 			</StackLayout>
 		</StackLayout>
+		
 	</ContentPage.Content>
 </ContentPage>

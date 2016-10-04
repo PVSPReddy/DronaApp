@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DronaApp.TemporaryListPage">
+	<ContentPage.Content>
+
+		<StackLayout x:Name="container">
+			
+			<StackLayout x:Name="holder" Padding="0, 20, 0, 5" BackgroundColor="Maroon" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+				<ListView x:Name="pageMenus" BackgroundColor="Maroon" >
+					<ListView.ItemTemplate >
+						<DataTemplate>
+							<ViewCell>
+								<StackLayout BackgroundColor="Teal">
+									<Label Text="{Binding pageName}">
+									</Label>
+								</StackLayout>
+							</ViewCell>
+						</DataTemplate>
+					</ListView.ItemTemplate>
+				</ListView>
+			</StackLayout>
+			
+			<StackLayout x:Name="footer" Padding="20,0,0,0" Orientation="Horizontal" BackgroundColor="Maroon" HorizontalOptions="CenterAndExpand">
+					<Label x:Name="goBack" Text="Go Back " TextColor="Teal" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer NumberOfTapsRequired="1" Tapped="goBackClicked" />
+						</Label.GestureRecognizers>
+					</Label>
+				</StackLayout>
+		</StackLayout>
+		
+	</ContentPage.Content>
+</ContentPage>
