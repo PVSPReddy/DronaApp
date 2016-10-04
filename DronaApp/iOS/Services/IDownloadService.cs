@@ -62,12 +62,12 @@ namespace DronaApp.iOS
 						}
 					}
 					appDataPath = Path.Combine(folderPath, fName);
-					var appDataPathh = Path.Combine(folderPath, fName);
+					//var appDataPathh = Path.Combine(folderPath, fName);
 				}
 				else
 				{
 					appDataPath = Path.Combine(folderPath, fName);
-					var appDataPathh = Path.Combine(folderPath, fName);
+					//var appDataPathh = Path.Combine(folderPath, fName);
 				}
 				#endregion
 				if ( isString )

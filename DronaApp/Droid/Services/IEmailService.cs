@@ -8,12 +8,6 @@ namespace DronaApp.Droid
 	{
 		public IEmailService()
 		{
-			Content = new StackLayout
-			{
-				Children = {
-					new Label { Text = "Hello ContentPage" }
-				}
-			};
 		}
 	}
 }
