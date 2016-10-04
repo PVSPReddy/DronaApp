@@ -19,7 +19,7 @@
 				</ListView>
 			</StackLayout>
 			
-			<StackLayout x:Name="footer" Padding="20,0,0,0" Orientation="Horizontal" BackgroundColor="Maroon" HorizontalOptions="CenterAndExpand">
+			<StackLayout x:Name="footer" Padding="20,0,10,0" Orientation="Horizontal" BackgroundColor="Maroon" HorizontalOptions="CenterAndExpand">
 					<Label x:Name="goBack" Text="Go Back " TextColor="Teal" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
 						<Label.GestureRecognizers>
 							<TapGestureRecognizer NumberOfTapsRequired="1" Tapped="goBackClicked" />

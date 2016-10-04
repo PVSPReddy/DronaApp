@@ -4,7 +4,7 @@
 		<OnPlatform x:TypeArguments="Thickness">
 			<!--<OnPlatform.iOS> 5, 20, 5, 0 </OnPlatform.iOS>
 			<OnPlatform.Android> 5, 0, 5, 0</OnPlatform.Android>-->
-			<OnPlatform.iOS> 0, 20, 0, 5 </OnPlatform.iOS>
+			<OnPlatform.iOS> 0, 20, 0, 0 </OnPlatform.iOS>
 			<OnPlatform.Android> 0, 0, 0, 0</OnPlatform.Android>
 		</OnPlatform>
 	</ContentPage.Padding>
@@ -12,11 +12,11 @@
 	<ContentPage.Content>
 		
 		<ScrollView>
-		<StackLayout x:Name="container" BackgroundColor="Teal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+		<StackLayout x:Name="container" Padding="0,0,0,5" BackgroundColor="Teal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
 			<StackLayout x:Name="holder" BackgroundColor="Teal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
 
 					
-				<StackLayout x:Name="header" Padding="20,0,0,0" Orientation="Horizontal" BackgroundColor="Maroon" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+				<StackLayout x:Name="header" Padding="20,0,20,0" Orientation="Horizontal" BackgroundColor="Maroon" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
 					<Label x:Name="menu" Text=">" TextColor="Teal" FontSize="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
 						<Label.GestureRecognizers>
 							<TapGestureRecognizer NumberOfTapsRequired="1" Tapped="MenuClicked" />
@@ -65,9 +65,23 @@ Thank you! :)
 							<TapGestureRecognizer NumberOfTapsRequired="1" Tapped="MenuClicked" />
 						</Label.GestureRecognizers>
 					</Label>-->
-					<Label x:Name="data3" TextColor="White" FontSize="20" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand">
+					<Label x:Name="data3" Text="This is also another way to &#10; to enter a &quot;line break&quot;. &#10; This is line one and &#10; this is line two " TextColor="White" FontSize="20" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand">
+						<!--<Label.Text>
+						</Label.Text>-->
+					</Label>
+				</StackLayout>
+
+
+
+				<StackLayout x:Name="body4" Padding="20,0,0,0" Orientation="Horizontal" BackgroundColor="Maroon" HorizontalOptions="CenterAndExpand">
+					<!--<Label x:Name="menu" Text=">" TextColor="Teal" FontSize="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer NumberOfTapsRequired="1" Tapped="MenuClicked" />
+						</Label.GestureRecognizers>
+					</Label>-->
+					<Label x:Name="data4" TextColor="White" FontSize="20" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand">
 						<Label.Text>
-								I hope you observed the difference between the above two texts. The above text has side effects. For more information see the code. 
+								I hope you observed the difference between the above three texts. The first text has side effects, where the other two and this has less For more information see the code. 
 						</Label.Text>
 					</Label>
 				</StackLayout>
@@ -83,7 +97,7 @@ Thank you! :)
 				</StackLayout>
 
 
-				<StackLayout x:Name="footer" Padding="20,0,0,0" Orientation="Horizontal" BackgroundColor="Maroon" HorizontalOptions="CenterAndExpand">
+				<StackLayout x:Name="footer" Padding="20,0,20,0" Orientation="Horizontal" BackgroundColor="Maroon" HorizontalOptions="CenterAndExpand">
 					<Label x:Name="goBack" Text="Go Back " TextColor="Teal" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
 						<Label.GestureRecognizers>
 							<TapGestureRecognizer NumberOfTapsRequired="1" Tapped="goBackClicked" />
