@@ -51,7 +51,7 @@
 						</Label>
 						<Label x:Name="welcomeNoteULine" TextColor="White" FontSize="Medium" FontAttributes="Italic, Bold" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" HorizontalOptions="CenterAndExpand">
 							<Label.Text>
-								__________________________
+								________________________________
 							</Label.Text>
 						</Label>
 						<Entry  x:Name="urlHolder" Placeholder="Enter the url to be Downloaded" PlaceholderColor="White" BackgroundColor="Maroon" FontSize="Small" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="CenterAndExpand">
@@ -64,7 +64,11 @@
 						</Label>
 						<Entry  x:Name="extensionHolder" Placeholder="Enter File Extension Here" PlaceholderColor="White"  BackgroundColor="Maroon" FontSize="Small" Grid.Row="3" Grid.Column="1" HorizontalOptions="EndAndExpand">
 						</Entry>
-						<Grid x:Name="buttonHolder" BackgroundColor="Transparent" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
+						<Label x:Name="confirm_Binary" Text="Is Data Binary/Text" TextColor="White" FontSize="Small" Grid.Row="4" Grid.Column="0" FontAttributes="Italic, Bold" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand">
+						</Label>
+						<Switch x:Name="confirmBinary" Grid.Row="4" Grid.Column="1" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" IsToggled="false" Toggled="DataIsBinary">
+						</Switch>
+						<Grid x:Name="buttonHolder" BackgroundColor="Transparent" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" >
 							<Grid.RowDefinitions>
 								<RowDefinition Height = "Auto"/>
 								<RowDefinition Height = "Auto"/>

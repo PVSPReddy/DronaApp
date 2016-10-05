@@ -40,7 +40,7 @@ namespace DronaApp
 			Label Download = new Label()
 			//Image Download = new Image()
 			{
-				Text = "Download",
+				Text = "Email",
 				TextColor = Color.Maroon,
 				//Source = "Download.png",
 				VerticalOptions = LayoutOptions.CenterAndExpand,
@@ -71,11 +71,21 @@ namespace DronaApp
 				DependencyService.Get<IPDF_View_Print>().PrintPdf(fullPath);
 			};
 			Print.GestureRecognizers.Add(print_Data);
+			Button back = new Button()
+			{
+				Text = "GoBack",
+				VerticalOptions = LayoutOptions.CenterAndExpand,
+				HorizontalOptions = LayoutOptions.CenterAndExpand,
+				Command = new Command(() =>
+				{
+					Navigation.PopModalAsync(true);
+				})
+			};
 			stackL = new StackLayout()
 			{
 				BackgroundColor = Color.Blue,
 				Orientation = StackOrientation.Horizontal,
-				Children = { Download, Print },
+				Children = { back ,Download, Print },
 				VerticalOptions = LayoutOptions.CenterAndExpand,
 				HorizontalOptions = LayoutOptions.EndAndExpand
 			};
@@ -83,7 +93,7 @@ namespace DronaApp
 			{
 				HeightRequest = screenHeight,
 				WidthRequest = screenWidth,
-				Children = { stackL, holder1 },
+				Children = { holder1, stackL},
 				VerticalOptions = LayoutOptions.CenterAndExpand,
 				HorizontalOptions = LayoutOptions.CenterAndExpand
 			};

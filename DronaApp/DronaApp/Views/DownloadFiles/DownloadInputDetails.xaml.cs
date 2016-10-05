@@ -9,6 +9,7 @@ namespace DronaApp
 	{
 		CustomProperties cp = new CustomProperties();
 		string fileUrl, fileName, filePath, filePath1, fileexten;
+		bool ToggledBinary;
 		IDownload downloadService;
 		IPDF_View_Print displayService;
 		ObservableCollection<FileDataFolder> filesList;
@@ -63,6 +64,18 @@ namespace DronaApp
 			}
 		}
 
+		public void DataIsBinary(object sender, EventArgs e)
+		{
+			try
+			{
+				ToggledBinary = confirmBinary.IsToggled;
+			}
+			catch (Exception ex)
+			{
+				var msg = ex.Message;
+			}
+		}
+
 		public void ShowImage()
 		{
 			//var uri = new Uri(String.Format("file://{0}", filePath1));
@@ -109,7 +122,7 @@ namespace DronaApp
 				#endregion
 				//downloadService.DownladThis(fileUrl, fileName, fileexten, this);
 				//downloadService.DownladThis("http://devrabbit.com/lic/imgbase64bin.php", fileName, "jpeg", this);
-				downloadService.DownladThis(fileUrl, fileName, fileexten, true, this);
+				downloadService.DownladThis(fileUrl, fileName, fileexten, ToggledBinary, this);
 			}
 			catch (Exception ex)
 			{
@@ -147,7 +160,10 @@ namespace DronaApp
 				{
 					if (Device.OS == TargetPlatform.iOS)
 					{
+						//await Navigation.PushModalAsync(new NavigationPage(new DisplayDownloadedFile(filePath1)));
 						await Navigation.PushModalAsync(new DisplayDownloadedFile(filePath1));
+						//await Navigation.PushAsync(new DisplayDownloadedFile(filePath1)); // use this as final
+						//await Navigation.PushAsync(new NavigationPage(new DisplayDownloadedFile(filePath1)));
 					}
 					else if (Device.OS == TargetPlatform.Android)
 					{
@@ -175,7 +191,7 @@ namespace DronaApp
 			try
 			{
 
-				//await Navigation.PushAsync(new FoldersList(filesList));
+				await Navigation.PushModalAsync(new DownloadedFilesList(filesList));
 			}
 			catch (Exception ex)
 			{
@@ -188,7 +204,7 @@ namespace DronaApp
 		{
 			try
 			{
-				
+				//DataIsBinary
 			}
 			catch (Exception ex)
 			{

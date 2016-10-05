@@ -11,6 +11,14 @@ namespace DronaApp
 		//bool navigate = false;
 		//StackLayout holder, header;
 		//Label menu;
+		//#region for IOS
+		//protected override void OnAppearing()
+		//{
+		//	base.OnAppearing();
+		//	NavigationPage.SetHasNavigationBar(this, false);
+
+		//}
+		//#endregion
 		public MasterPage_LV_Detail()
 		{
 			InitializeComponent();
