@@ -1,5 +1,79 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DronaApp.GalleryIntroduction">
+	<ContentPage.Padding>
+		<OnPlatform x:TypeArguments="Thickness">
+			<!--<OnPlatform.iOS> 5, 20, 5, 0 </OnPlatform.iOS>
+			<OnPlatform.Android> 5, 0, 5, 0</OnPlatform.Android>-->
+			<OnPlatform.iOS> 0, 20, 0, 0 </OnPlatform.iOS>
+			<OnPlatform.Android> 0, 0, 0, 0</OnPlatform.Android>
+		</OnPlatform>
+	</ContentPage.Padding>
+	
 	<ContentPage.Content>
+		
+		<ScrollView>
+		<StackLayout x:Name="container" Padding="0,0,0,5" BackgroundColor="Teal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+			<StackLayout x:Name="holder" BackgroundColor="Teal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+					
+				<StackLayout x:Name="header" Padding="20,0,20,0" Orientation="Horizontal" BackgroundColor="Maroon" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+					<Label x:Name="menu" Text=">" TextColor="Teal" FontSize="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer NumberOfTapsRequired="1" Tapped="MenuClicked" />
+						</Label.GestureRecognizers>
+					</Label>
+					<Label x:Name="title" Text="My Home" TextColor="White" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+					</Label>
+				</StackLayout>
+
+
+				<StackLayout x:Name="optionsBody" Padding="20,0,0,0" Orientation="Horizontal" BackgroundColor="Maroon" HorizontalOptions="CenterAndExpand">
+					<Label x:Name="movefurther" Text="Move Further" TextColor="Teal" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer NumberOfTapsRequired="1" Tapped="movefurtherClicked" />
+						</Label.GestureRecognizers>
+					</Label>
+				</StackLayout>
+
+
+				<StackLayout x:Name="footer" Padding="20,0,20,0" Orientation="Horizontal" BackgroundColor="Maroon" HorizontalOptions="CenterAndExpand">
+					<Label x:Name="goBack" Text="Go Back " TextColor="Teal" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer NumberOfTapsRequired="1" Tapped="goBackClicked" />
+						</Label.GestureRecognizers>
+					</Label>
+				</StackLayout>
+
+					
+				<StackLayout x:Name="body1" Padding="20,0,0,0" Orientation="Horizontal" BackgroundColor="Maroon" HorizontalOptions="CenterAndExpand">
+					<Label x:Name="data1" TextColor="White" FontSize="20" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand">
+						<Label.Text>
+								There are many ways to do this &#10;, I am showing the best of all
+						</Label.Text>
+					</Label>
+				</StackLayout>
+
+
+				<StackLayout x:Name="body2" Padding="20,0,0,0" Orientation="Horizontal" BackgroundColor="Maroon" HorizontalOptions="CenterAndExpand">
+					<!--<Label x:Name="menu" Text=">" TextColor="Teal" FontSize="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer NumberOfTapsRequired="1" Tapped="MenuClicked" />
+						</Label.GestureRecognizers>
+					</Label>-->
+					<Label x:Name="data2" TextColor="White" FontSize="20" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand">
+						<Label.Text>
+								
+						</Label.Text>
+					</Label>
+				</StackLayout>
+
+
+
+
+					
+			</StackLayout>
+		</StackLayout>
+		</ScrollView>
+		
 	</ContentPage.Content>
 </ContentPage>

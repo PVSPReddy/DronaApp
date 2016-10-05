@@ -2,6 +2,9 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DronaApp.DisplayAllEmployees">
 	<ContentPage.Content>
 
+		<StackLayout>
+		</StackLayout>
+
 		<StackLayout x:Name="holder" Padding="5,20,5,10" BackgroundColor="Teal" >
 			<StackLayout x:Name="container" BackgroundColor="Teal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
 				

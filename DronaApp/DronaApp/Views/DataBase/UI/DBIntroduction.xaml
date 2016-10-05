@@ -46,11 +46,6 @@
 
 					
 				<StackLayout x:Name="body1" Padding="20,0,0,0" Orientation="Horizontal" BackgroundColor="Maroon" HorizontalOptions="CenterAndExpand">
-					<!--<Label x:Name="menu" Text=">" TextColor="Teal" FontSize="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
-						<Label.GestureRecognizers>
-							<TapGestureRecognizer NumberOfTapsRequired="1" Tapped="MenuClicked" />
-						</Label.GestureRecognizers>
-					</Label>-->
 					<Label x:Name="data1" TextColor="White" FontSize="20" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand">
 						<Label.Text>
 								#region when using database use this to we can get to particular page based on the presence of database use in app.cs constructor

@@ -7,10 +7,11 @@ namespace DronaApp
 {
 	public partial class DBIntroduction : ContentPage
 	{
-		CustomProperties cp = new CustomProperties();
+		
 		public DBIntroduction()
 		{
 			InitializeComponent();
+			CustomProperties cp = new CustomProperties();
 			holder.HeightRequest = cp.AppScreenHeight;
 			holder.WidthRequest = cp.AppScreenWidth;
 			header.HeightRequest = cp.AppHeaderHeight;

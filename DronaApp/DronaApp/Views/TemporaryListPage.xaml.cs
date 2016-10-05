@@ -12,7 +12,9 @@ namespace DronaApp
 			InitializeComponent();
 			List<PageDetails> lvMenu = new List<PageDetails>()
 			{
-				(new PageDetails{pageName="Download_Page", imageSource=null, pageNavigation=typeof(DownloadInputDetails)})
+				(new PageDetails{pageName="Download File Example", imageSource=null, pageNavigation=typeof(DownloadInputDetails)}),
+				(new PageDetails{pageName="DataBase Example", imageSource=null, pageNavigation=typeof(EmployeeRegistrationForm)}),
+				(new PageDetails{pageName="CameraGallery Example", imageSource=null, pageNavigation=typeof(GalleryIntroduction)})
 			};
 			pageMenus.ItemsSource = lvMenu;
 			pageMenus.ItemSelected += SelectPage;

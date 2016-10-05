@@ -1,5 +1,23 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DronaApp.MyImageDisplay">
 	<ContentPage.Content>
+
+		<StackLayout x:Name="container" Padding="0,0,0,5" BackgroundColor="Teal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+			<StackLayout x:Name="holder" BackgroundColor="Teal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+				<StackLayout x:Name="imageHolder">
+					<Image x:Name="myImage" Aspect="AspectFit" >
+					</Image>
+				</StackLayout>
+				<StackLayout x:Name="buttonHolder" Orientation="Horizontal">
+					<Button x:Name="camera" Text="From Camera" TextColor="White" BackgroundColor="Maroon" Clicked="cameraClicked" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+					</Button>
+					<Button x:Name="gallery" Text="From Gallery" TextColor="White" BackgroundColor="Maroon" Clicked="galleryClicked" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
+					</Button>
+				</StackLayout>
+				
+			</StackLayout>
+		</StackLayout>
+					
 	</ContentPage.Content>
 </ContentPage>
