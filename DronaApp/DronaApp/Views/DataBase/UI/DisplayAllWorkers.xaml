@@ -1,5 +1,62 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DronaApp.DisplayAllWorkers">
 	<ContentPage.Content>
+
+		
+		<StackLayout x:Name="holder" Padding="5,20,5,10" BackgroundColor="Teal" >
+			<StackLayout x:Name="container" BackgroundColor="Teal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+				
+				<ListView x:Name="EmployeeDetails" SeparatorVisibility="None" BackgroundColor="Transparent" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+					<ListView.ItemTemplate>
+						<DataTemplate>
+							<ViewCell>
+								<StackLayout x:Name="listViewHolder" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+									<Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+										<Grid.RowDefinitions>
+											<RowDefinition Height="Auto">
+											</RowDefinition>
+											<RowDefinition Height="Auto" />
+											<RowDefinition Height="Auto" />
+											<RowDefinition Height="Auto" />
+											<RowDefinition Height="Auto" />
+										</Grid.RowDefinitions>
+										<Grid.ColumnDefinitions>
+											<ColumnDefinition Width="Auto" >
+											</ColumnDefinition>
+											<ColumnDefinition Width="Auto" />
+										</Grid.ColumnDefinitions>
+										<Label x:Name="user_FName" Text="First Name  : " Grid.Column="0" Grid.Row="0" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+										</Label>
+										<Label x:Name="userFName" Text="{Binding userFName_}" Grid.Column="1" Grid.Row="0" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+										</Label>
+										<Label x:Name="user_LName" Text="Last Name  : " Grid.Column="0" Grid.Row="1" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+										</Label>
+										<Label x:Name="userLName" Text="{Binding userLName_}" Grid.Column="1" Grid.Row="1" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+										</Label>
+										<Label x:Name="user_Mobile" Text="Mobile Number  : " Grid.Column="0" Grid.Row="2" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+										</Label>
+										<Label x:Name="userMobile" Text="{Binding userMobile_, StringFormat='{0}'}" Grid.Column="1" Grid.Row="2" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+										</Label>
+										<Label x:Name="user_Email" Text="Email-Id  : " Grid.Column="0" Grid.Row="3" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+										</Label>
+										<Label x:Name="userEmail" Text="{Binding userEmail_}" Grid.Column="1" Grid.Row="3" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+										</Label>
+										<Label x:Name="user_Address" Text="Address  : " Grid.Column="0" Grid.Row="4" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+										</Label>
+										<Label x:Name="userAddress" Text="{Binding userAddress_}" Grid.Column="1" Grid.Row="4" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+										</Label>
+									</Grid>
+								</StackLayout>
+							</ViewCell>
+						</DataTemplate>
+					</ListView.ItemTemplate>
+				</ListView>
+
+				<Button x:Name="back" Text="Back" TextColor="White" BackgroundColor="Maroon" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Clicked="BackClicked">
+				</Button>
+			</StackLayout>
+		</StackLayout>
+
+		
 	</ContentPage.Content>
 </ContentPage>

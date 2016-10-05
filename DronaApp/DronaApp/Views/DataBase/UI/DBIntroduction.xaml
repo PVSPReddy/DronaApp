@@ -1,5 +1,116 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DronaApp.DBIntroduction">
+	<ContentPage.Padding>
+		<OnPlatform x:TypeArguments="Thickness">
+			<!--<OnPlatform.iOS> 5, 20, 5, 0 </OnPlatform.iOS>
+			<OnPlatform.Android> 5, 0, 5, 0</OnPlatform.Android>-->
+			<OnPlatform.iOS> 0, 20, 0, 0 </OnPlatform.iOS>
+			<OnPlatform.Android> 0, 0, 0, 0</OnPlatform.Android>
+		</OnPlatform>
+	</ContentPage.Padding>
+	
 	<ContentPage.Content>
+		
+		<ScrollView>
+		<StackLayout x:Name="container" Padding="0,0,0,5" BackgroundColor="Teal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+			<StackLayout x:Name="holder" BackgroundColor="Teal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+
+					
+				<StackLayout x:Name="header" Padding="20,0,20,0" Orientation="Horizontal" BackgroundColor="Maroon" VerticalOptions="Start" HorizontalOptions="CenterAndExpand">
+					<Label x:Name="menu" Text=">" TextColor="Teal" FontSize="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer NumberOfTapsRequired="1" Tapped="MenuClicked" />
+						</Label.GestureRecognizers>
+					</Label>
+					<Label x:Name="title" Text="My Home" TextColor="White" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+					</Label>
+				</StackLayout>
+
+
+				<StackLayout x:Name="optionsBody" Padding="20,0,0,0" Orientation="Horizontal" BackgroundColor="Maroon" HorizontalOptions="CenterAndExpand">
+					<Label x:Name="movefurther" Text="Move Further" TextColor="Teal" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer NumberOfTapsRequired="1" Tapped="movefurtherClicked" />
+						</Label.GestureRecognizers>
+					</Label>
+				</StackLayout>
+
+
+				<StackLayout x:Name="footer" Padding="20,0,20,0" Orientation="Horizontal" BackgroundColor="Maroon" HorizontalOptions="CenterAndExpand">
+					<Label x:Name="goBack" Text="Go Back " TextColor="Teal" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer NumberOfTapsRequired="1" Tapped="goBackClicked" />
+						</Label.GestureRecognizers>
+					</Label>
+				</StackLayout>
+
+					
+				<StackLayout x:Name="body1" Padding="20,0,0,0" Orientation="Horizontal" BackgroundColor="Maroon" HorizontalOptions="CenterAndExpand">
+					<!--<Label x:Name="menu" Text=">" TextColor="Teal" FontSize="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer NumberOfTapsRequired="1" Tapped="MenuClicked" />
+						</Label.GestureRecognizers>
+					</Label>-->
+					<Label x:Name="data1" TextColor="White" FontSize="20" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand">
+						<Label.Text>
+								#region when using database use this to we can get to particular page based on the presence of database use in app.cs constructor
+			/*var info = new DataBaseMethods().userRetrivedInfo();
+			if (info == null)
+			{
+				MainPage = new EmployeeRegistrationForm();
+			}
+			else
+			{
+				MainPage = new EmployeeLoginForm();
+			}*/
+			and also
+			#endregion
+						</Label.Text>
+					</Label>
+				</StackLayout>
+
+
+				<StackLayout x:Name="body2" Padding="20,0,0,0" Orientation="Horizontal" BackgroundColor="Maroon" HorizontalOptions="CenterAndExpand">
+					<!--<Label x:Name="menu" Text=">" TextColor="Teal" FontSize="30" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer NumberOfTapsRequired="1" Tapped="MenuClicked" />
+						</Label.GestureRecognizers>
+					</Label>-->
+					<Label x:Name="data2" TextColor="White" FontSize="20" HorizontalTextAlignment="Start" VerticalTextAlignment="Center" HorizontalOptions="StartAndExpand">
+						<Label.Text>
+								use this
+								protected override void OnStart()
+		{
+			#region this should be used along with database if any error occurs showing null database mostly in android and sometimes in ios also
+			/*SQLiteConnection mySQLiteConnection = DependencyService.Get&lt;IDataBase&gt;().GetConnection("MY_SELF");
+			if (mySQLiteConnection.Table&lt;MySelf&gt;() == null)
+			{
+				MySelf mytbl = new MySelf();
+				mytbl._userId = 0;
+			}
+
+			SQLiteConnection myPeopleSQLiteConnection = DependencyService.Get&lt;IDataBase&gt;().GetConnection("MY_PEOPLE");
+			if (myPeopleSQLiteConnection.Table&lt;MyPeopleTable&gt;() == null)
+			{
+				MyPeopleTable myplptbl = new MyPeopleTable();
+				myplptbl._userId_ = 0;
+			}*/
+			#endregion
+
+
+			// Handle when your app starts
+		}
+						</Label.Text>
+					</Label>
+				</StackLayout>
+
+
+
+
+					
+			</StackLayout>
+		</StackLayout>
+		</ScrollView>
+		
 	</ContentPage.Content>
 </ContentPage>

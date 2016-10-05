@@ -1,5 +1,44 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DronaApp.EmployeeLoginForm">
 	<ContentPage.Content>
+
+		
+		<StackLayout Padding="5,20,5,10" x:Name="holder" BackgroundColor="Teal" >
+		<StackLayout Spacing="6" x:Name="container" BackgroundColor="Teal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+			<StackLayout x:Name="nameHolder" Orientation="Horizontal" BackgroundColor="Transparent" >
+				<Label x:Name="user_Name" Text="User Name" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+				</Label>
+				<Entry x:Name="userName" Placeholder="Enter User Name" PlaceholderColor="White" TextColor="White" BackgroundColor="Maroon" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+				</Entry>
+			</StackLayout>
+			<StackLayout x:Name="passwordHolder" Orientation="Horizontal" BackgroundColor="Transparent">
+				<Label x:Name="user_Password" Text="User Password" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+				</Label>
+				<Entry x:Name="userPassword" Placeholder="Enter User Password" PlaceholderColor="White" IsPassword="true" TextColor="White" BackgroundColor="Maroon" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+				</Entry>
+			</StackLayout>
+			<StackLayout x:Name="buttonHolder" BackgroundColor="Transparent">
+				<Button x:Name="submit" Text="Submit" TextColor="White" BackgroundColor="Maroon" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Clicked="SubmitClicked">
+				</Button>
+			</StackLayout>
+			<StackLayout x:Name="registrationHolder" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+				<Grid x:Name="registration_Holder" BackgroundColor="Transparent"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+					<Grid.RowDefinitions>
+					<RowDefinition Height="Auto" />
+					</Grid.RowDefinitions>
+					<Label x:Name="notHaving_Account" Text="__________________________" Grid.Row="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+					</Label>
+					<Label x:Name="notHavingAccount" Text="I Don't Have An Account" Grid.Row="0" HorizontalTextAlignment="Center" VerticalTextAlignment="End" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer Tapped="NotHavingAccountTapped">
+							</TapGestureRecognizer>
+						</Label.GestureRecognizers>
+					</Label>
+				</Grid>
+			</StackLayout>
+		</StackLayout>
+		</StackLayout>
+
+		
 	</ContentPage.Content>
 </ContentPage>

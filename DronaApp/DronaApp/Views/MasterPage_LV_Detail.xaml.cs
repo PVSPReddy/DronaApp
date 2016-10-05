@@ -74,7 +74,7 @@ namespace DronaApp
 		{
 			try
 			{
-				Navigation.PushModalAsync(new TemporaryListPage());
+				Navigation.PushModalAsync(new EmployeeRegistrationForm());
 			}
 			catch (Exception ex)
 			{

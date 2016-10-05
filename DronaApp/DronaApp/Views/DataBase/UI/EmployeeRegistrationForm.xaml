@@ -1,5 +1,80 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DronaApp.EmployeeRegistrationForm">
 	<ContentPage.Content>
+
+		
+		<StackLayout Padding="5,20,5,10" x:Name="holder" BackgroundColor="Teal" >
+            <StackLayout x:Name="container" BackgroundColor="Teal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+				<Grid VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+					<Grid.RowDefinitions>
+						<RowDefinition Height="Auto">
+						</RowDefinition>
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="Auto" />
+						<RowDefinition Height="Auto" />
+					</Grid.RowDefinitions>
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto" >
+						</ColumnDefinition>
+						<ColumnDefinition Width="Auto" />
+					</Grid.ColumnDefinitions>
+					<Label x:Name="user_FName" Text="First Name" TextColor="White" Grid.Row="0" Grid.Column="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+					</Label>
+					<Entry x:Name="userFName" Placeholder="Enter First Name" PlaceholderColor="White" Keyboard="Default" Grid.Row="0" Grid.Column="1" TextColor="White" BackgroundColor="Maroon" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+					</Entry>
+					<Label x:Name="user_LName" Text="Last Name" TextColor="White" Grid.Row="1" Grid.Column="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+					</Label>
+					<Entry x:Name="userLName" Placeholder="Enter Last Name" PlaceholderColor="White" Keyboard="Default" Grid.Row="1" Grid.Column="1" TextColor="White" BackgroundColor="Maroon" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+					</Entry>
+					<Label x:Name="user_Mobile" Text="User Mobile" TextColor="White" Grid.Row="2" Grid.Column="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+					</Label>
+					<Entry x:Name="userMobile" Placeholder="Enter Mobile Number" PlaceholderColor="White" Keyboard="Numeric" Grid.Row="2" Grid.Column="1" TextColor="White" BackgroundColor="Maroon" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+					</Entry>
+					<Label x:Name="user_Email" Text="User Email" TextColor="White" Grid.Row="3" Grid.Column="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+					</Label>
+					<Entry x:Name="userEmail" Placeholder="Enter EmailId" PlaceholderColor="White" Grid.Row="3" Keyboard="Email" Grid.Column="1" TextColor="White" BackgroundColor="Maroon" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+					</Entry>
+					<Label x:Name="user_Password" Text="User Password" TextColor="White" Grid.Row="4" Grid.Column="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+					</Label>
+					<Entry x:Name="userPassword" Placeholder="Enter Password" PlaceholderColor="White" Keyboard="Default" Grid.Row="4" Grid.Column="1" TextColor="White" BackgroundColor="Maroon" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+					</Entry>
+					<Label x:Name="user_Address" Text="User Address" TextColor="White" Grid.Row="5" Grid.Column="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+					</Label>
+					<Editor x:Name="userAddress" Text="" TextColor="White" Keyboard="Default" Grid.Row="5" Grid.Column="1" BackgroundColor="Maroon" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+					</Editor>
+					<Button x:Name="submit" Text="Submit" TextColor="White" BackgroundColor="Maroon" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Clicked="SubmitClicked">
+					</Button>
+					<!--<Label x:Name="HavingAccount" Text="I Already Have An Account" Grid.Row="6" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+						<Label.GestureRecognizers>
+						<TapGestureRecognizer Tapped="HavingAccountTapped">
+						</TapGestureRecognizer>
+						</Label.GestureRecognizers>
+					</Label>
+					<Label x:Name="Having_Account" Text="_____________________________" Grid.Row="6" Grid.Column="0" HorizontalTextAlignment="Center" VerticalTextAlignment="End" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+					</Label>-->
+					<StackLayout x:Name="loginHolder" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+						<Grid x:Name="login_Holder" BackgroundColor="Transparent"  VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" >
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+						</Grid.RowDefinitions>
+							<Label x:Name="Having_Account" Text="____________________________" Grid.Row="0" HorizontalTextAlignment="Center" VerticalTextAlignment="Start" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+							</Label>
+							<Label x:Name="HavingAccount" Text="I Already Have An Account" Grid.Row="0" HorizontalTextAlignment="Center" VerticalTextAlignment="End" TextColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
+								<Label.GestureRecognizers>
+								<TapGestureRecognizer Tapped="HavingAccountTapped">
+								</TapGestureRecognizer>
+								</Label.GestureRecognizers>
+							</Label>
+						</Grid>
+					</StackLayout>
+				</Grid>
+            </StackLayout>
+        </StackLayout>  
+
+		
 	</ContentPage.Content>
 </ContentPage>

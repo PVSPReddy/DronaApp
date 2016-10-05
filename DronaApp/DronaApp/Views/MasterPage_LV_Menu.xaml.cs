@@ -13,7 +13,9 @@ namespace DronaApp
 			Title = "Menu"; //mandatory
 			List<PageDetails> lvMenu = new List<PageDetails>()
 			{
-				(new PageDetails{pageName="Home Detail", imageSource=null, pageNavigation=typeof(MasterPage_LV_Detail)})
+				(new PageDetails{pageName="Home Detail", imageSource=null, pageNavigation=typeof(MasterPage_LV_Detail)}),
+				(new PageDetails{pageName="Download File Example", imageSource=null, pageNavigation=typeof(DownloadInputDetails)}),
+				(new PageDetails{pageName="DataBase Example", imageSource=null, pageNavigation=typeof(EmployeeRegistrationForm)})
 			};
 			pageMenus.ItemsSource = lvMenu;
 			pageMenus.ItemSelected += SelectPage;

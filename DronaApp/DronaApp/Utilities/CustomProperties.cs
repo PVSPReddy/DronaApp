@@ -8,7 +8,7 @@ namespace DronaApp
 	{
        private double appScreenHeight;
 		private double appScreenWidth;
-		private double appHeadderHeight;
+		private double appHeaderHeight;
 		private double appHeaderWidth;
 
 
@@ -23,10 +23,10 @@ namespace DronaApp
 			get { return appScreenWidth; }
 			set { appScreenWidth = value; }
 		}
-		public dynamic AppHeadderHeight
+		public dynamic AppHeaderHeight
 		{
-			get { return appHeadderHeight; }
-			set { appHeadderHeight = value; }
+			get { return appHeaderHeight; }
+			set { appHeaderHeight = value; }
 		}
 		public dynamic AppHeaderWidth
 		{
@@ -42,7 +42,7 @@ namespace DronaApp
 		{
 			appScreenHeight = App.ScreenHeight + 3;
 			appScreenWidth = App.ScreenWidth + 3;
-			appHeadderHeight = (appScreenHeight * 10) / 100;
+			appHeaderHeight = (appScreenHeight * 10) / 100;
 			appHeaderWidth = appScreenWidth;
 		}
 	}
