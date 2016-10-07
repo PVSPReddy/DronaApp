@@ -1,19 +1,22 @@
 ﻿using System;
-
+using DronaApp.Droid;
 using Xamarin.Forms;
 
+[assembly : Dependency(typeof(ICameraGalleryService))]
 namespace DronaApp.Droid
 {
-	public class ICameraGalleryService : ContentPage
+	public class ICameraGalleryService : ICameraGallery
 	{
-		public ICameraGalleryService()
+		public ICameraGalleryService(){}
+
+		public bool CaptureImage(MyImageDisplay _myimagedisplay)
 		{
-			Content = new StackLayout
-			{
-				Children = {
-					new Label { Text = "Hello ContentPage" }
-				}
-			};
+			throw new NotImplementedException();
+		}
+
+		public bool ShowSelectedImage(MyImageDisplay _myimagedisplay)
+		{
+			throw new NotImplementedException();
 		}
 	}
 }

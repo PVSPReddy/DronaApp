@@ -9,11 +9,21 @@
 					<Image x:Name="myImage" Aspect="AspectFit" >
 					</Image>
 				</StackLayout>
-				<StackLayout x:Name="buttonHolder" Orientation="Horizontal">
+				<StackLayout x:Name="buttonHolder" Orientation="Horizontal" VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
 					<Button x:Name="camera" Text="From Camera" TextColor="White" BackgroundColor="Maroon" Clicked="cameraClicked" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
 					</Button>
 					<Button x:Name="gallery" Text="From Gallery" TextColor="White" BackgroundColor="Maroon" Clicked="galleryClicked" HorizontalOptions="CenterAndExpand" VerticalOptions="StartAndExpand">
 					</Button>
+				</StackLayout>
+
+				
+
+				<StackLayout x:Name="footer" Padding="20,0,20,0" Orientation="Horizontal" BackgroundColor="Maroon" HorizontalOptions="CenterAndExpand">
+					<Label x:Name="goBack" Text="Go Back " TextColor="Teal" FontSize="20" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand">
+						<Label.GestureRecognizers>
+							<TapGestureRecognizer NumberOfTapsRequired="1" Tapped="goBackClicked" />
+						</Label.GestureRecognizers>
+					</Label>
 				</StackLayout>
 				
 			</StackLayout>

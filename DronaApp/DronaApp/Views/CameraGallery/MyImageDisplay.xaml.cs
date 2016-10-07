@@ -7,18 +7,23 @@ namespace DronaApp
 {
 	public partial class MyImageDisplay : ContentPage
 	{
+		ICameraGallery _mediaService;
 		public MyImageDisplay()
 		{
-			InitializeComponent();
 			CustomProperties cp = new CustomProperties();
-			holder.HeightRequest = cp.AppScreenHeight;
-			holder.WidthRequest = cp.AppScreenWidth;
+			var screenHeight = cp.AppScreenHeight;
+			var screenWidth = cp.AppScreenWidth;
+			InitializeComponent();
+			_mediaService = DependencyService.Get<ICameraGallery>();
+			holder.HeightRequest = screenHeight;
+			holder.WidthRequest = screenWidth;
 		}
 		public void cameraClicked(object sender, EventArgs e)
 		{
 			try
 			{
-				
+				_mediaService.CaptureImage(this);
+				//DependencyService.Get<ICameraGallery>().CaptureImage(this);
 			}
 			catch (Exception ex)
 			{
@@ -29,7 +34,27 @@ namespace DronaApp
 		{
 			try
 			{
-				
+				//DependencyService.Get<ICameraGallery>().ShowSelectedImage(this);
+				_mediaService.ShowSelectedImage(this);
+			}
+			catch (Exception ex)
+			{
+				var msg = ex.Message;
+			}
+		}
+		public void ShowImageIOS(string imagePath)
+		{
+			myImage.Source = ImageSource.FromFile(imagePath);
+		}
+		public void ShowImageDroid(string imagePath)
+		{
+			myImage.Source = ImageSource.FromFile(imagePath);
+		}
+		public void goBackClicked(object sender, EventArgs e)
+		{
+			try
+			{
+				Navigation.PopModalAsync(true);
 			}
 			catch (Exception ex)
 			{

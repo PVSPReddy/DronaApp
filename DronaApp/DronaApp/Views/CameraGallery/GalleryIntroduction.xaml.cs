@@ -61,14 +61,14 @@ namespace DronaApp
 
 		public void movefurtherClicked(object sender, EventArgs e)
 		{
-			try
-			{
-				Navigation.PushModalAsync(new MyImageDisplay());
-			}
-			catch (Exception ex)
-			{
-				var msg = ex.Message;
-			}
+			//try
+			//{
+			Navigation.PushAsync(new NavigationPage(new MyImageDisplay()));
+			//}
+			//catch (Exception ex)
+			//{
+			//	var msg = ex.Message;
+			//}
 		}
 
 
