@@ -2,6 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="DronaApp.MyImageDisplay">
 	<ContentPage.Content>
 
+		<ScrollView>
 		<StackLayout x:Name="container" Padding="0,0,0,5" BackgroundColor="Teal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
 			<StackLayout x:Name="holder" BackgroundColor="Teal" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand">
 
@@ -28,6 +29,7 @@
 				
 			</StackLayout>
 		</StackLayout>
+		</ScrollView>
 					
 	</ContentPage.Content>
 </ContentPage>

@@ -3,9 +3,9 @@ namespace DronaApp
 {
 	public interface ICameraGallery
 	{
-		bool CaptureImage(MyImageDisplay _myimagedisplay);
+		void CaptureImage(MyImageDisplay _myimagedisplay);
 
-		bool ShowSelectedImage(MyImageDisplay _myimagedisplay);
+		void ShowSelectedImage(MyImageDisplay _myimagedisplay);
 	}
 }
 

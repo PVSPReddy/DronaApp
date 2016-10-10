@@ -16,7 +16,7 @@ namespace DronaApp.iOS
 
 
 
-		public bool CaptureImage(MyImageDisplay _myimagedisplay)
+		public void CaptureImage(MyImageDisplay _myimagedisplay)
 		{
 			try
 			{
@@ -59,7 +59,8 @@ namespace DronaApp.iOS
                     #endregion*/
 
 
-					_myimagedisplay.ShowImageIOS(path);
+					//_myimagedisplay.ShowImageIOS(path);
+					MyImageDisplay.mid.ShowImageIOS(path);
 					if (image.AsPNG().Save(filepath, false))
 					{
 
@@ -75,10 +76,10 @@ namespace DronaApp.iOS
 			{
 				var msg = ex.Message;
 			}
-			return true;
+			//return true;
 		}
 
-		public bool ShowSelectedImage(MyImageDisplay _myimagedisplay)
+		public void ShowSelectedImage(MyImageDisplay _myimagedisplay)
 		{
 			try
 			{
@@ -92,7 +93,8 @@ namespace DronaApp.iOS
 					image.AsPNG().Save(filepath, false);
 					var path = filepath;
 
-					_myimagedisplay.ShowImageIOS(path);
+					//_myimagedisplay.ShowImageIOS(path);
+					MyImageDisplay.mid.ShowImageIOS(path);
 					if (image.AsPNG().Save(filepath, false))
 					{
 
@@ -108,7 +110,7 @@ namespace DronaApp.iOS
 			{
 				var msg = ex.Message;
 			}
-			return true;
+			//return true;
 		}
 	}
 }
