@@ -79,6 +79,7 @@ namespace DronaApp.iOS
 			//return true;
 		}
 
+
 		public void ShowSelectedImage(MyImageDisplay _myimagedisplay)
 		{
 			try
@@ -112,6 +113,7 @@ namespace DronaApp.iOS
 			}
 			//return true;
 		}
+
 	}
 }
 

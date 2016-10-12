@@ -13,6 +13,12 @@ using Java.Util.Regex;
 using Xamarin.Forms;
 
 
+
+#region startup reading page
+/*in this method we have to write code in deppendency and as well in Mainactivity also so to write code in single page watch my next
+project coined as ICameraGalleryService2 in th same project for ios i wrote only one dependency service but for android there are many*/
+#endregion
+
 [assembly : Dependency(typeof(ICameraGalleryService))]
 namespace DronaApp.Droid
 {
@@ -74,6 +80,7 @@ namespace DronaApp.Droid
 				var msg = ex.Message;
 			}
 		}
+
 	}
 
 	//[Activity(Label = "ICameraGalleryServiceActivity")]

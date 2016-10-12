@@ -8,6 +8,7 @@ namespace DronaApp
 	public partial class MyImageDisplay : ContentPage
 	{
 		ICameraGallery _mediaService;
+		ICameraGalleryDroidSpl _mediaServiceAndroidSpl;
 		public static MyImageDisplay mid;
 		public MyImageDisplay()
 		{
@@ -16,6 +17,7 @@ namespace DronaApp
 			var screenWidth = cp.AppScreenWidth;
 			InitializeComponent();
 			_mediaService = DependencyService.Get<ICameraGallery>();
+			_mediaServiceAndroidSpl = DependencyService.Get<ICameraGalleryDroidSpl>();
 			holder.HeightRequest = screenHeight;
 			holder.WidthRequest = screenWidth;
 			mid = this;
@@ -25,8 +27,23 @@ namespace DronaApp
 		{
 			try
 			{
-				_mediaService.CaptureImage(this);
+				
 				//DependencyService.Get<ICameraGallery>().CaptureImage(this);
+				if (androidpersonalSwitch.IsToggled == false)
+				{
+					_mediaService.CaptureImage(this);
+				}
+				else
+				{
+					if (Device.OS == TargetPlatform.Android)
+					{
+						_mediaServiceAndroidSpl.CaptureImageDroidSplOne(this);
+					}
+					else
+					{
+						_mediaService.CaptureImage(this);
+					}
+				}
 			}
 			catch (Exception ex)
 			{
@@ -38,7 +55,21 @@ namespace DronaApp
 			try
 			{
 				//DependencyService.Get<ICameraGallery>().ShowSelectedImage(this);
-				_mediaService.ShowSelectedImage(this);
+				if (androidpersonalSwitch.IsToggled == false)
+				{
+					_mediaService.ShowSelectedImage(this);
+				}
+				else
+				{
+					if (Device.OS == TargetPlatform.Android)
+					{
+						_mediaServiceAndroidSpl.ShowSelectedImageDroidSplOne(this);
+					}
+					else 
+					{
+						_mediaService.ShowSelectedImage(this);
+					}
+				}
 			}
 			catch (Exception ex)
 			{
@@ -47,12 +78,14 @@ namespace DronaApp
 		}
 		public void ShowImageIOS(string imagePath)
 		{
+			myImage.Aspect = Aspect.AspectFit;
 			myImage.Source = ImageSource.FromFile(imagePath);
 		}
 		public void ShowImageDroid(string imagePath)
 		{
 			//Uri _uri = new Uri(imagePath);
 			//myImage.Source = ImageSource.FromUri(_uri);
+			myImage.Aspect = Aspect.AspectFit;
 			myImage.Source = ImageSource.FromFile(imagePath);
 			//myImage.Source = imagePath;
 		}
