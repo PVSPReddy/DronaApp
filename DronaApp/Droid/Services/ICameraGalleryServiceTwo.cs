@@ -12,11 +12,14 @@ using Xamarin.Forms;
 using Android.OS;
 using Java.Util.Regex;
 using Android.Database;
+using Android.Graphics;
 
 
 #region startup reading page
 /*in this method we have to write code in deppendency and as well in Mainactivity also so to write code in single page watch my next
-project coined as ICameraGalleryService2 in th same project for ios i wrote only one dependency service but for android there are many*/
+project coined as ICameraGalleryService2 in th same project for ios i wrote only one dependency service but for android there are many
+dont forget to get permissions for camera, write external storage, read external storage then it makes all the magic
+ try to implement each and every line of this code which gives a better result*/
 #endregion
 
 [assembly: Dependency(typeof(ICameraGalleryServiceTwo))]
@@ -117,11 +120,29 @@ namespace DronaApp.Droid
 			else if (_id == 2)
 			{
 
-				intent.SetType("image/*");
+				if (Build.VERSION.SdkInt < BuildVersionCodes.Kitkat)
+				{
+					intent = new Intent();
+					intent.SetType("image/*");
+					intent.SetAction(Intent.ActionGetContent);
+					StartActivityForResult(Intent.CreateChooser(intent, "Select Picture"), 2);
+				}
+				else
+				{
+					intent = new Intent();
+					intent.SetType("image/*");
+					intent.SetAction(Intent.ActionOpenDocument);
+					intent.AddCategory(Intent.CategoryOpenable);
+					StartActivityForResult(Intent.CreateChooser(intent, "Select Picture"), 2);
+				}
+
+				#region general
+				/*intent.SetType("image/*");
 				//Intent.PutExtra(Intent.ActionSendMultiple, true);
 				//Intent.PutExtra(Intent.ExtraAllowMultiple, true);
 				intent.SetAction(Intent.ActionGetContent);
-				StartActivityForResult(Intent.CreateChooser(intent, "Select Picture"), 2);
+				StartActivityForResult(Intent.CreateChooser(intent, "Select Picture"), 2);*/
+				#endregion
 			}
 			else
 			{
@@ -133,68 +154,164 @@ namespace DronaApp.Droid
 
 		protected async override void OnActivityResult(int requestCode, Result resultCode, Intent data)
 		{
-			base.OnActivityResult(requestCode, resultCode, data);
-			if (requestCode == 2)
+			try
 			{
-				if (resultCode == Result.Ok)
+				string uuuri = file.ToString();
+				base.OnActivityResult(requestCode, resultCode, data);
+				if (requestCode == 2)
 				{
-					try
+					if (resultCode == Result.Ok)
 					{
-						var uri1 = data.Data;
-						var uuuri = await getRealPathFromURI(this, uri1);
-						//getFileNameByUri(this, uri1);
-						//var uuuri = getImagePath(this, uri1);
-						MyImageDisplay.mid.ShowImageDroid(uuuri);
-						Finish();
-						/*if (uuuri == "not possible")
+						try
 						{
-
-							if (resultCode == Result.Ok)
+							var uri1 = data.Data;
+							uuuri = await getRealPathFromURI(this, uri1);
+							//getFileNameByUri(this, uri1);
+							//var uuuri = getImagePath(this, uri1);
+							//MyImageDisplay.mid.ShowImageDroid(uuuri);
+							//Finish();
+							/*if (uuuri == "not possible")
 							{
-								ImageSource imageSource = ImageSource.FromStream(() => Forms.Context.ContentResolver.OpenInputStream(data.Data));
-								//Console.WriteLine("uri : {0}", imageSource.ToString());
-								//MainPage.attachImage(imageSource);
-								//mid.ShowImage(imageSource);
+
+								if (resultCode == Result.Ok)
+								{
+									ImageSource imageSource = ImageSource.FromStream(() => Forms.Context.ContentResolver.OpenInputStream(data.Data));
+									//Console.WriteLine("uri : {0}", imageSource.ToString());
+									//MainPage.attachImage(imageSource);
+									//mid.ShowImage(imageSource);
+								}
+								else
+								{
+									//mid.ShowImage(imageSource);
+								}
+
 							}
 							else
 							{
-								//mid.ShowImage(imageSource);
-							}
-
+								//mid.ShowImage(uuuri);
+							}*/
 						}
-						else
+						catch (Exception ex)
 						{
-							//mid.ShowImage(uuuri);
-						}*/
-					}
-					catch (Exception ex)
-					{
-						var msg = ex.Message;
-					}
+							var msg = ex.Message;
+						}
 
+					}
 				}
-			}
-			else if (requestCode == 1)
-			{
-				if (resultCode == Result.Ok)
+				else if (requestCode == 1)
 				{
-					//var uri1 = data.Data;
-					//var uuuri = getRealPathFromURI(this, uri1);
-					//getFileNameByUri(this, uri1);
-					//var uuuri = getImagePath(this, uri1);
-					MyImageDisplay.mid.ShowImageDroid(file.ToString());
+					if (resultCode == Result.Ok)
+					{
+						uuuri = file.ToString();
+						//var uri1 = data.Data;
+						//var uuuri = getRealPathFromURI(this, uri1);
+						//getFileNameByUri(this, uri1);
+						//var uuuri = getImagePath(this, uri1);
+						//MyImageDisplay.mid.ShowImageDroid(file.ToString());
+						//Finish();
+						//ImageSource imageSource = ImageSource.FromStream(() => Forms.Context.ContentResolver.OpenInputStream(data.Data));
+						//Console.WriteLine("uri : {0}", imageSource.ToString());
+						//MainPage.attachImage(imageSource);
+						//.ShowImageAndroid(imageSource);
+					}
+					else
+					{
+						//mid.ShowImage(imageSource);
+					}
+				}
+
+				try
+				{
+					#region 
+					var _file = new File(Android.OS.Environment.GetExternalStoragePublicDirectory(Android.OS.Environment.DirectoryPictures), "Display.jpg");
+					var _uuuri = _file.ToString();
+					Bitmap originalImage;
+					BitmapFactory.Options options = new BitmapFactory.Options();
+					//options.InPreferredConfig = Android.Graphics.Bitmap.Config.Rgb565;// this decreases the image temp size and avoides exception out of memory
+					options.InJustDecodeBounds = true;
+					//options.InTempStorage = new byte[16 * 1024]; //use if any error occurs more frequently
+					originalImage = BitmapFactory.DecodeFile(uuuri, options);
+					//options.InSampleSize = 2;
+
+					#region For Screen Height & Width
+					var pixels = Resources.DisplayMetrics.WidthPixels;
+					var scale = Resources.DisplayMetrics.Density;
+
+					var dps = (double)((pixels - 0.5f) / scale);
+
+					int reqWidth = ((int)dps) - 20;
+
+					pixels = Resources.DisplayMetrics.HeightPixels;
+					dps = (double)((pixels - 0.5f) / scale);
+
+					int reqHeight = ((int)dps) - 20;
+					#endregion
+
+					int actualWidth = options.OutWidth;
+					int actualHeight = options.OutHeight;
+					options.InSampleSize = await CalculateInSampleSize(options, reqHeight, reqWidth);
+					options.InJustDecodeBounds = false;
+
+					//var imagestream = Forms.Context.ContentResolver.OpenInputStream(data.Data);
+					//Bitmap originalImage = BitmapFactory.DecodeStream(imagestream);
+					//Bitmap originalImage = BitmapFactory.DecodeFile(uuuri, options);
+					originalImage = BitmapFactory.DecodeFile(uuuri, options);
+					Bitmap resizedImage = Bitmap.CreateScaledBitmap(originalImage, reqWidth, reqHeight, false);
+					using (System.IO.Stream stream = System.IO.File.Create(_uuuri))
+					{
+						//var filedone = resizedImage.Compress(Bitmap.CompressFormat.Jpeg, 100, stream);
+						var filedone = resizedImage.Compress(Bitmap.CompressFormat.Jpeg, 30, stream);
+						MyImageDisplay.mid.ShowImageDroid(_uuuri);
+						if (originalImage != null)
+						{
+							originalImage.Recycle();
+							originalImage = null;
+							//originalImage.Dispose();
+							options = null;
+							System.GC.Collect();
+						}
+					}
+					//originalImage.Dispose();
 					Finish();
-					//ImageSource imageSource = ImageSource.FromStream(() => Forms.Context.ContentResolver.OpenInputStream(data.Data));
-					//Console.WriteLine("uri : {0}", imageSource.ToString());
-					//MainPage.attachImage(imageSource);
-					//.ShowImageAndroid(imageSource);
+					#endregion
 				}
-				else
+				catch (Exception ex)
 				{
-					//mid.ShowImage(imageSource);
+					var msg = ex.Message;
 				}
+
+			}
+			catch (Exception ex)
+			{
+				var msg = ex.Message;
 			}
 		}
+
+
+
+		public async Task<int> CalculateInSampleSize(BitmapFactory.Options options, int reqHeight, int reqWidth)
+		{
+			int height = options.OutHeight;
+			int width = options.OutWidth;
+			int inSampleSize = 1;
+			if (height > reqHeight || width > reqWidth)
+			{
+
+				int halfHeight = height / 2;
+				int halfWidth = width / 2;
+
+				// Calculate the largest inSampleSize value that is a power of 2 and keeps both
+				// height and width larger than the requested height and width.
+				while ((halfHeight / inSampleSize) >= reqHeight
+						&& (halfWidth / inSampleSize) >= reqWidth)
+				{
+					inSampleSize *= 2;
+				}
+			}
+
+			return inSampleSize;
+		}
+
 
 		public async Task<string> getRealPathFromURI(Context context, Android.Net.Uri contentURI)
 		{
@@ -273,6 +390,7 @@ namespace DronaApp.Droid
 				{
 					return null;
 				}
+
 			}
 			catch (Exception ex)
 			{
@@ -313,5 +431,10 @@ namespace DronaApp.Droid
 			}
 		}
 
+		public override void OnBackPressed()
+		{
+			base.OnBackPressed();
+			Finish();
+		}
 	}
 }
