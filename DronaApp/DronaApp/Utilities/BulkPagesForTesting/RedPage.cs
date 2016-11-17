@@ -2,7 +2,7 @@
 
 using Xamarin.Forms;
 
-namespace MasterDetailEx
+namespace DronaApp
 {
 	public class RedPage : ContentPage
 	{
@@ -45,11 +45,11 @@ namespace MasterDetailEx
 			menuTap.NumberOfTapsRequired = 1;
 			menuTap.Tapped += (object sender, EventArgs e) =>
 			{
-				Content = null;
-				var pagers = cp.MainAppPage as ContentPage;
-				Content = pagers.Content;
-				//var parentPage = (MasterDetailPage)this.Parent;
-				//parentPage.IsPresented = (parentPage.IsPresented == false) ? true : false;
+				//Content = null;
+				//var pagers = cp.MainAppPage as ContentPage;
+				//Content = pagers.Content;
+				var parentPage = (MasterDetailPage)this.Parent;
+				parentPage.IsPresented = (parentPage.IsPresented == false) ? true : false;
 			};
 			if (Device.OS == TargetPlatform.Android)
 			{

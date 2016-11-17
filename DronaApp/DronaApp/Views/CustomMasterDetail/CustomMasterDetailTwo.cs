@@ -4,16 +4,19 @@ using Xamarin.Forms;
 
 namespace DronaApp
 {
-	public class CustomMasterDetailTwo : ContentPage
+	public class CustomMasterDetailTwo : MasterDetailsTwo
 	{
 		public CustomMasterDetailTwo()
 		{
-			Content = new StackLayout
-			{
-				Children = {
-					new Label { Text = "Hello ContentPage" }
-				}
-			};
+			Title = "";
+			Icon = null; ;
+			this.IsGestureEnabled = false;
+			NavigationPage.SetHasNavigationBar(this, false);
+
+			Application.Current.Properties["ParentPage"] = this;
+
+			Master = new MastersPage();
+			Detail = new BluePage() { BackgroundColor = Color.White, };
 		}
 	}
 }
