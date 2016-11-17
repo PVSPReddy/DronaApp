@@ -50,8 +50,9 @@ namespace DronaApp
 		public MapTabbedPage()
 		{
 			Children.Add(new MapOnePCL() {Title="MainMap", Icon=null });
-
+			Children.Add(new StaticMapPagePCL() { Title = "my Loc Map", Icon = null });
 			Children.Add(new MapOnePCL() { Title = "Map_Pins", Icon = null });
+			Children.Add(new CustomMapPage() { Title = "Custom", Icon = null });
 		}
 
 	}
