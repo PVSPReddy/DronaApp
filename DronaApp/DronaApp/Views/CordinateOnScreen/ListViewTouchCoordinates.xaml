@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+		xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:local="clr-namespace:DronaApp;Assembly=DronaApp"
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		x:Class="DronaApp.ListViewTouchCoordinates">
+	<ContentPage.Content>
+
+		<AbsoluteLayout x:Name="floatingDisplay" HeightRequest="667">
+			<StackLayout x:Name="floatDisplay" Opacity="0" BackgroundColor="Maroon" AbsoluteLayout.LayoutBounds="300,0,50,50" AbsoluteLayout.LayoutFlags="None">
+				<Label Text="Close" TextColor="Green">
+				</Label>
+				<BoxView Color="Teal" HeightRequest="40" >
+				</BoxView>
+			</StackLayout>
+		<StackLayout x:Name="holder" Padding="10,20,10,5" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+			
+							
+			<!--<StackLayout x:Name="numberOne" BackgroundColor="Blue" WidthRequest="50" HeightRequest="70">
+			</StackLayout>
+			<StackLayout x:Name="numberTwo" BackgroundColor="Navy" WidthRequest="50" HeightRequest="70">
+			</StackLayout>
+			<StackLayout x:Name="numberThree" BackgroundColor="Olive" WidthRequest="50" HeightRequest="70">
+			</StackLayout>
+			<StackLayout x:Name="numberFour" BackgroundColor="Teal" WidthRequest="50" HeightRequest="70">
+			</StackLayout>-->
+			<local:MyListViewOne x:Name="displayView" SeparatorColor="Maroon">
+				<local:MyListViewOne.ItemTemplate>
+					<DataTemplate>
+						<local:MyViewCellOne>
+							<StackLayout WidthRequest="50">
+								<AbsoluteLayout>
+									<!--<BoxView x:Name="Testing" BackgroundColor="Teal" Opacity="0.01" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" >
+									</BoxView>-->
+									<StackLayout Orientation="Horizontal" AbsoluteLayout.LayoutBounds="0,0,0.7,1" AbsoluteLayout.LayoutFlags="All" >
+										<Label Text="{Binding myName}" TextColor="Maroon">
+										</Label>
+										<local:MyButtonOne Text="Click" TextColor="Maroon" ><!-- BackgroundColor="Maroon" Clicked="ClickClicked"-->
+										</local:MyButtonOne>
+									</StackLayout>
+									<StackLayout x:Name="popupDisplay" BackgroundColor="Fuchsia" IsVisible="{Binding letUsShow}" AbsoluteLayout.LayoutBounds="0.7,1,0.3,3" AbsoluteLayout.LayoutFlags="All" >
+										<Label Text="{Binding myName}" TextColor="Maroon">
+										</Label>
+										<Label Text="{Binding myName}" TextColor="Maroon">
+										</Label>
+										<Label Text="{Binding myName}" TextColor="Maroon">
+										</Label>
+										<Button Text="Close" TextColor="White" BackgroundColor="Maroon" Clicked="CloseLayout">
+										</Button>
+									</StackLayout>
+								</AbsoluteLayout>
+							</StackLayout>
+						</local:MyViewCellOne>
+					</DataTemplate>
+				</local:MyListViewOne.ItemTemplate>
+			</local:MyListViewOne>
+					<!--<BoxView x:Name="Testing" BackgroundColor="Teal" Opacity="0.01" AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All" >
+					</BoxView>-->	
+				
+		</StackLayout>
+		</AbsoluteLayout>
+
+		
+	</ContentPage.Content>
+</ContentPage>
