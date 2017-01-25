@@ -66,6 +66,7 @@ namespace DronaApp
 					"India."
 			};
 
+
 			//map.MoveToRegion(new MapSpan(new Position(0, 0), 360, 360));
 			//map.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(17.428575, 78.433162), Distance.FromMiles(0.3)));
 			//map.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(17.428575, 78.433162), Distance.FromMiles(0.3)));
