@@ -16,7 +16,8 @@ namespace DronaApp.iOS
 
 			App.ScreenWidth = (int)UIScreen.MainScreen.Bounds.Width;
 			App.ScreenHeight = (int)UIScreen.MainScreen.Bounds.Height;
-
+            BaseContentPage.screenWidth = (int)UIScreen.MainScreen.Bounds.Width;
+            BaseContentPage.screenHeight = (int)UIScreen.MainScreen.Bounds.Height;
 			LoadApplication(new App());
 
 			return base.FinishedLaunching(app, options);
