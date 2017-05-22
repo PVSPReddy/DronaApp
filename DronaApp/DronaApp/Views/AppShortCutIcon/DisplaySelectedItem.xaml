@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<local:BaseContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	xmlns:local="clr-namespace:DronaApp;assembly=DronaApp"
+	x:Class="DronaApp.DisplaySelectedItem">
+    <local:BaseContentPage.Content>
+		<AbsoluteLayout BackgroundColor="Maroon" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout x:Name="headerStack" BackgroundColor="Blue" AbsoluteLayout.LayoutBounds="0,0,1,0.1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Button x:Name="backBtn" Text="Back" VerticalOptions="Center" HorizontalOptions="Center" />
+            </StackLayout>
+            <StackLayout x:Name="bodyStack" BackgroundColor="White" AbsoluteLayout.LayoutBounds="0,0.5,1,0.8" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout Orientation="Horizontal" Spacing="20" HorizontalOptions="CenterAndExpand" VerticalOptions="EndAndExpand" Padding="0,30,0,0">
+                    <Label x:Name="names" VerticalOptions="Center" HorizontalOptions="Center" />
+					<Label x:Name="texts" VerticalOptions="Center" HorizontalOptions="Center" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout x:Name="footerStack" BackgroundColor="Blue" AbsoluteLayout.LayoutBounds="0,1,1,0.1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Button x:Name="removeBtn" Text="RemoveShortcut" VerticalOptions="Center" HorizontalOptions="Center" />
+            </StackLayout>
+            <StackLayout x:Name="popupStack" IsVisible="false" BackgroundColor="Teal" AbsoluteLayout.LayoutBounds="0.5,0.5,0.6,0.5" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Label Text="This is an Absolute Example" VerticalOptions="Center" HorizontalOptions="Center" />
+                <ActivityIndicator HeightRequest="30" WidthRequest= "30" IsRunning = "true" >
+                </ActivityIndicator>
+            </StackLayout>
+        </AbsoluteLayout>
+    </local:BaseContentPage.Content>
+</local:BaseContentPage>
