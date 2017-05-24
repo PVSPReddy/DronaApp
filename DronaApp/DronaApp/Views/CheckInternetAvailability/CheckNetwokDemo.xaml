@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+	xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="DronaApp.CheckNetwokDemo"
+	Padding="0,20,0,0"
+	>
+    <ContentPage.Content>
+		<AbsoluteLayout BackgroundColor="Maroon" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <StackLayout x:Name="headerStack" BackgroundColor="Gray" Padding="0,20,0,0" AbsoluteLayout.LayoutBounds="0,0,1,0.1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <Label Text="This is a Network Checking Example" VerticalOptions="Center" HorizontalOptions="Center" />
+            </StackLayout>
+            <StackLayout x:Name="bodyStack" BackgroundColor="White" AbsoluteLayout.LayoutBounds="0,0.5,1,0.8" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <StackLayout Orientation="Vertical" BackgroundColor="White" Spacing="20" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Padding="0,30,0,0">
+                    <Button x:Name="submitBtn" Text="Check Internet" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Clicked="SubmitBtnClicked" />
+                </StackLayout>
+            </StackLayout>
+            <StackLayout x:Name="footerStack" BackgroundColor="Gray" AbsoluteLayout.LayoutBounds="0,1,1,0.1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            </StackLayout>
+            <StackLayout x:Name="popupStack" IsVisible="false" BackgroundColor="#50FFFFFF" AbsoluteLayout.LayoutBounds="0.5,0.5,0.9,0.8" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+                <ActivityIndicator HeightRequest="30" WidthRequest= "30" IsRunning = "true" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" >
+                </ActivityIndicator>
+            </StackLayout>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>
