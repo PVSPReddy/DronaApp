@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ArrayOfColors>
+	<Colors>
+		<ColorName>Orange</ColorName>
+		<ColorValue>#F78F1E</ColorValue>
+	</Colors>
+	<Colors>
+		<ColorName>Red</ColorName>
+		<ColorValue>#FF0000</ColorValue>
+	</Colors>
+	<Colors>
+		<ColorName>Black</ColorName>
+		<ColorValue>#000000</ColorValue>
+	</Colors>
+	<Colors>
+		<ColorName>White</ColorName>
+		<ColorValue>#FFFFFF</ColorValue>
+	</Colors>
+	<Colors>
+		<ColorName>Gray</ColorName>
+		<ColorValue>#6C6C6C</ColorValue>
+	</Colors>
+	<Colors>
+		<ColorName>LightGray</ColorName>
+		<ColorValue>#8C8C8C</ColorValue>
+	</Colors>
+	<Colors>
+		<ColorName>FBColor</ColorName>
+		<ColorValue>#3B5998</ColorValue>
+	</Colors>
+	<Colors>
+		<ColorName>LinkedinColor</ColorName>
+		<ColorValue>#0077B5</ColorValue>
+	</Colors>
+	<Colors>
+		<ColorName>WhiteTransparent30</ColorName>
+		<ColorValue>#30FFFFFF</ColorValue>
+	</Colors>
+	<Colors>
+		<ColorName>BlackTransparent30</ColorName>
+		<ColorValue>#30000000</ColorValue>
+	</Colors>
+</ArrayOfColors>
