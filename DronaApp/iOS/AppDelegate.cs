@@ -23,14 +23,59 @@ namespace DronaApp.iOS
             #endregion
 
             #region for local notifications
-            var settings = UIUserNotificationSettings.GetSettingsForTypes(UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound, null);
-            UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
+
+            if (options != null)
+            {
+
+                // check for a local notification
+                if (options.ContainsKey(UIApplication.LaunchOptionsLocalNotificationKey))
+                {
+
+                    UILocalNotification localNotification = options[UIApplication.LaunchOptionsLocalNotificationKey] as UILocalNotification;
+                    if (localNotification != null)
+                    {
+
+                        new UIAlertView(localNotification.AlertAction, localNotification.AlertBody, null, "OK", null).Show();
+                        // reset our badge
+                        UIApplication.SharedApplication.ApplicationIconBadgeNumber = 0;
+                    }
+                }
+            }
+
+            if (UIDevice.CurrentDevice.CheckSystemVersion(8, 0))
+            {
+                var settings = UIUserNotificationSettings.GetSettingsForTypes(UIUserNotificationType.Alert | UIUserNotificationType.Badge | UIUserNotificationType.Sound, null);
+                UIApplication.SharedApplication.RegisterUserNotificationSettings(settings);
+            }
+            else
+            {
+
+            }
             #endregion
 
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);
         }
+
+        #region for local notifications to find and act when app is in foregroung and background
+        public override void ReceivedLocalNotification(UIApplication application, UILocalNotification notification)
+        {
+            // show an alert
+            UIAlertController okayAlertController = UIAlertController.Create(notification.AlertAction, notification.AlertBody, UIAlertControllerStyle.Alert);
+            okayAlertController.AddAction(UIAlertAction.Create("OK", UIAlertActionStyle.Default, null));
+            UIApplication.SharedApplication.ApplicationIconBadgeNumber = 0;
+
+            if (UIApplication.SharedApplication.ApplicationState.Equals(UIApplicationState.Active))
+            {
+                //App is in foreground. Act on it.
+            }
+            else
+            {
+                //App.Current.MainPage = new EditAlarm();
+            }
+        }
+        #endregion
     }
 }
 

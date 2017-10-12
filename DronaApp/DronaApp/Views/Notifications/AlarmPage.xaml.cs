@@ -11,12 +11,19 @@ namespace DronaApp
         #region for Global VAriables
         bool isTimeSelected, isRepititionConfirmed, isDateSelected;
         string repeatType;
+        ILocalNotifications localNotifications;
+        List<AlarmData> listAlarmData;
         #endregion
 
         public AlarmPage()
         {
+            #region for Local Variables
+            listAlarmData = new List<AlarmData>();
+            #endregion
+
             InitializeComponent();
-            string[] pickerItems = new string[] { "Don't Repeat", "Select Date", "Repeat Every Day" };
+            localNotifications = DependencyService.Get<ILocalNotifications>();
+            string[] pickerItems = new string[] { "Don't Repeat", "Select Date", "Repeat Every Day", "Start in 6 sec and repeat every sec" };
             foreach (var item in pickerItems)
             {
                 pickerAlarm.Items.Add(item);
@@ -67,6 +74,7 @@ namespace DronaApp
                 }
                 else
                 {
+                    repeatType = (owner.Items[owner.SelectedIndex]);
                     switch (owner.Items[owner.SelectedIndex])
                     {
                         case "Don't Repeat":
@@ -83,6 +91,11 @@ namespace DronaApp
                         case "Repeat Every Day":
                             datePickerAlarm.IsVisible = false;
                             StackDaysSelection.IsVisible = true;
+                            isDateSelected = false;
+                            break;
+                        case "Start in 6 sec and repeat every sec":
+                            datePickerAlarm.IsVisible = false;
+                            StackDaysSelection.IsVisible = false;
                             isDateSelected = false;
                             break;
                         default:
@@ -156,17 +169,56 @@ namespace DronaApp
         #region to submit the alarm
         void SubmitAlarm(object sender, EventArgs e)
         {
+            lvAlarmData.BeginRefresh();
             try
             {
-                DependencyService.Get<ILocalNotifications>().GetNotificationImmediately();
+                if (listAlarmData.Count() > 0)
+                {
+                    var data = listAlarmData.Max(x => x.alarmId);
+                }
+                switch (repeatType)
+                {
+                    case "Don't Repeat":
+
+                        break;
+                    case "Select Date":
+
+                        break;
+                    case "Repeat Every Day":
+
+                        break;
+                    case "Start in 6 sec and repeat every sec":
+                        localNotifications.GetNotificationImmediately();
+                        break;
+                    default:
+
+                        break;
+                }
+
+                listAlarmData.Add(new AlarmData() { });
             }
             catch (Exception ex)
             {
                 var msg = ex.Message;
             }
+            lvAlarmData.EndRefresh();
             stackAlarmPopup.IsVisible = false;
         }
         #endregion
+
+    }
+
+    public class AlarmData
+    {
+        public string alarmId { get; set; }
+
+        public string alarmName { get; set; }
+
+        public string alarmTime { get; set; }
+
+        public string alarmType { get; set; }
+
+        public string alarmCreatedOn { get; set; }
 
     }
 }

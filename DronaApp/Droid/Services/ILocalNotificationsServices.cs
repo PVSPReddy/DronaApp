@@ -15,6 +15,7 @@ namespace DronaApp.Droid
             bool isNotified = false;
             try
             {
+
                 isNotified = true;
             }
             catch (Exception ex)

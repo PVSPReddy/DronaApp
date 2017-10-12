@@ -60,7 +60,22 @@
             </Grid>
 
             <StackLayout x:Name="stackBody" BackgroundColor="Transparent" AbsoluteLayout.LayoutBounds="0,1,1,0.9" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
-                
+                <ListView x:Name="lvAlarmData" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+					<ListView.ItemTemplate>
+						<DataTemplate>
+							<ViewCell>
+								<StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+									<Label Text="{Binding alarmName}" HorizontalOptions="StartAndExpand" VerticalOptions="Center">
+									</Label>
+									<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+										<Label>
+										</Label>
+									</StackLayout>
+								</StackLayout>
+							</ViewCell>
+						</DataTemplate>
+					</ListView.ItemTemplate>
+				</ListView>
             </StackLayout>
 
 			<StackLayout x:Name="stackAlarmPopup" BackgroundColor="Transparent" Padding="30,0,30,0" AbsoluteLayout.LayoutBounds="0,1,1,1" AbsoluteLayout.LayoutFlags="All" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
